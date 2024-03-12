@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 import Header from "./src/components/Header";
-import Card from "./src/components/Card";
+import Cards from "./src/components/Cards";
 
 function App(){
   const [img, setImg] = useState('');
@@ -22,19 +22,26 @@ function App(){
   return(
     <View style={styles.container}>
 
-      <Header />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+      >
 
-      <Text style={styles.text}> Select the Model you're interested in: </Text>
+        <Header />
 
-      <View style={styles.pickerStyle} >
-        <Picker
-          selectedValue={selectedCamera}
-          onValueChange={ (itemValue, itemIndex) =>  setSelectedCamera(itemValue)}
-        >
-          {camerasItem}
-        </Picker>
-      </View>
-      {selectedCamera !== undefined && <Card camera={cameras[selectedCamera]} />}
+        <Text style={styles.text}> Select the Model you're interested in: </Text>
+
+        <View style={styles.pickerStyle} >
+          <Picker
+            selectedValue={selectedCamera}
+            onValueChange={ (itemValue, itemIndex) =>  setSelectedCamera(itemValue)}
+          >
+            {camerasItem}
+          </Picker>
+        </View>
+        {selectedCamera !== undefined && <Cards camera={cameras[selectedCamera]} />}
+
+      </ScrollView>
+      
 
     </View>
   );
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   pickerStyle: {
-    backgroundColor: '#CECECE',
+    backgroundColor: '#FFF',
     marginVertical: 24,
     borderRadius: 10,
     borderWidth: 1,
