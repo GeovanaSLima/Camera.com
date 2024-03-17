@@ -5,17 +5,17 @@ import { Card } from 'react-native-paper';
 function Cards(props) {
 
     return(
-        <View style={styles.card}>
+        <View style={styles.container}>
             <Card style={styles.card}>
-                <Card.Cover source={ props.camera.cameraImage } />
-                <Card.Title title="testTitle" subtitle="Subtitle" />
+                <View style={styles.imageCard}>
+                    <Card.Cover source={ props.camera.cameraImage } style={ styles.image } resizeMode="contain" />
+                </View>
+                <Card.Title title={ props.camera.name } subtitle={ props.camera.model } style={ styles.title } />
                 <Card.Content>
-                    <Text>Title</Text>
+                    <Text> { props.camera.description } </Text>
                 </Card.Content>
             </Card>
 
-            {/* <Image source={ props.camera.cameraImage } style={styles.image} />
-            <Text style={{color: '#FFF', fontSize: 24}}> { props.camera.name } </Text> */}
         </View>
     );
 
@@ -25,16 +25,31 @@ function Cards(props) {
 const { width: screenWidth } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
+    container: {
+        marginBottom: 15
+    },
     card: {
         backgroundColor: '#FFF',
         width: screenWidth - 48,
         borderRadius: 10,
         borderWidth: 1,
-        
+    },
+    imageCard: {
+        justifyContent: 'center',
+        flex: 1,
+        alignItems: 'center',
+        height: 250,
+        width: screenWidth - 48,
     },
     image: {
-        width: screenWidth - 56,
-        resizeMode: 'contain',
+        backgroundColor: '#FFF',
+        width: 280,
+        height: 220,
+    },
+    title: {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+    
     }
 })
 
