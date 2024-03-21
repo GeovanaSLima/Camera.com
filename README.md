@@ -25,6 +25,7 @@ Before starting, you'll need to have installed the following tools:
 Besides that, you're going to need a code editor of your preference. I am used to the [VSCode](https://code.visualstudio.com/), but you are free to choose.
 
 
+
 </br>
 
 ## 🔨 Installing and Configuring
