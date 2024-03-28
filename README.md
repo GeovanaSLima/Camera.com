@@ -2,7 +2,6 @@
 <h1 align="center"> Camera.com </h1>
 
 
-
 </br>
 
 # 🏁 Content Table
